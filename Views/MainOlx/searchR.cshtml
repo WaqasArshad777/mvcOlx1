@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "searchR";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-2.1.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<h2>searchR</h2>
+
+@using (Ajax.BeginForm("searchPart", "MainOlx", new AjaxOptions { HttpMethod = "GET",UpdateTargetId="Res",InsertionMode = InsertionMode.Replace}))
+{
+    <input type="text" name="search_ad"/>
+    <input type="submit"/>
+}
+
+<div id="Res">
+
+</div>

@@ -1,0 +1,94 @@
+﻿@using mvcOlx.Models;
+@model PagedList.IPagedList<mvcOlx.Models.Ad>
+
+@using PagedList.Mvc;
+
+
+<div id="Ads">
+    @foreach (Ad item in Model)
+    {
+        <div style="margin-left: 25%; margin-right: 25%">
+
+            <hr />
+
+            <br />
+
+            @if (item.AdLImage != null)
+            {
+                <img src=@Url.Content(item.AdLImage) alt="Photograph" style="width: 40%; height: 30%; float:right" />
+            }
+
+            else if (item.AdImage != null)
+            {
+
+                <img src=@Url.Content(item.AdImage) alt="Photograph" style="width: 25%; height: 30%; float:right" />
+
+
+            }
+
+
+            <div>
+                <span style="font-size: 22px; font-family: Calibri">
+                    Title:
+                </span>
+
+                <span style="font-size: 25px; font-weight: bold; font-family: Times New Roman">
+                    <strong>
+                        @item.Title
+                    </strong>
+                </span>
+            </div>
+            <br />
+            @if (@item.Price != null)
+            {
+                <div>
+                    <span style="font-size: 20px; font-family: Calibri; ">
+                        Price:
+                    </span>
+                    <span style="font-size: 20px; font-family: Times New Roman">
+                        Rs. @item.Price
+                    </span>
+                </div>
+
+                <br />
+            }
+
+            <div>
+                <span style="font-size: 20px; font-family: Calibri">
+                    Location:
+                </span>
+                <span style="font-size: 20px; font-family:times new roman">
+                    @item.City
+                </span>
+            </div>
+
+            <br />
+
+            <br />
+
+            @using (Html.BeginForm("Detail", "MainOlx", new { id = @item.AdID }, FormMethod.Post, null))
+            {
+                <input type="submit" value="View Full Ad" class="buttons">
+            }
+
+            <br />
+
+            <hr />
+
+        </div>
+    }
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("SearchResult", new { page, Category = ViewBag.cat, location = ViewBag.loc, from_price = ViewBag.from, to = ViewBag.to, search_ad = ViewBag.s, province = ViewBag.pro }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "Ads" }))
+
+
+</div>

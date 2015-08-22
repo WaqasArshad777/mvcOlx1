@@ -1,0 +1,144 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+}
+
+
+<head>
+    <title>OLX - Sign Up</title>
+
+    <link href="~/StyleSheet/MyStyleSheet.css" rel="stylesheet" />
+
+    <style>
+    </style>
+
+    <script src="~/myScripts/signup.js"></script>
+
+    <script type="text/javascript">
+
+    </script>
+
+</head>
+<body>
+
+    <div>
+
+        <form id="submittingform" action="SignUp" method="post">
+
+
+            <div style="margin-left:4%">
+
+                <div id="olxlogo">
+
+                    <a href="/MainOlx/Home" id="topHomeLink">
+                        <img src="/images/OLX_Logo.jpg" alt="OLX Logo" style="width: 15%; height: 135px; margin-left: 0.25%;" />
+                    </a>
+
+                    <span class="slogan" style="font-size: 28px; font-weight: bold; color: orange; margin-left: 1.5%">
+                        Pakistan's Largest Marketplace
+                    </span>
+
+                    <span class="account">
+                        @{
+
+                            if (@ViewBag.person == "Log in to My Account")
+                            {
+                                <a href="/MainOlx/Login" class="blk" style="color: green" id="topLoginLink">
+                                    <img src="/images/green-man.png" alt="Person Icon" style="width: 3%; height: 35px; margin-left: 0.25%; position: relative; top: 2px" />
+                                    <strong>
+                                        @ViewBag.person
+                                    </strong>
+                                </a>
+                            }
+                            else
+                            {
+
+                                <a href="/MainOlx/Profile" class="blk" style="color: green" id="topProfileLink">
+                                    <img src="/images/green-man.png" alt="Person Icon" style="width: 3%; height: 35px; margin-left: 0.25%; position: relative; top: 2px" />
+                                    <strong>
+                                        @ViewBag.person
+                                    </strong>
+                                </a>
+                            }
+                        }
+
+                    </span>
+
+                    <span class="account" style="margin-left: 1%">
+                        <a id="postNewAdLink" class="blk" style="color: purple" href="/MainOlx/SubmitAd">
+                            <img src="/images/plus1.png" alt="Plus Icon" style="width: 3%; height: 32px; margin-left: 0.25%; position: relative; top: 2px" />
+                            <strong>
+                                Submit an Ad
+                            </strong>
+                        </a>
+                    </span>
+
+                    <br />
+
+                </div>
+            </div>
+
+
+            <br />
+
+            <!--<a href="LogIn.aspx">LogIn</a>-->
+            <br />
+
+            <div style="margin-left: 24%">
+
+                <span style="font-size: 28px; font-weight: bold; color: maroon; margin-left: 30%">
+                    Register Account
+                </span>
+            </div>
+
+            <br />
+            <br />
+
+            <div class="signingUp">
+                <div style="margin-left: 8%; margin-right: 22%">
+
+                    <span style="font-size: 25px; color: purple;">
+                        *Enter your email:
+                    </span>
+                    <input type="email" name="Email" id="emailbox" style="width: 50%; height: 25px; font-size: 14px; border-color: orange" />
+
+                </div>
+            </div>
+            <br />
+
+            <br />
+            <div class="signingUp">
+                <div style="margin-left: 2.5%; margin-right: 26%">
+
+                    <span style="font-size: 25px; color: purple;">
+                        *Enter your Password:
+                    </span>
+                    <input type="password" name="Pass" id="pswrd" style="width: 50%; height: 25px; font-size: 14px; border-color: orange" />
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <div class="signingUp">
+                <div style="margin-left: 0.5%; margin-right: 26%">
+
+                    <span style="font-size: 25px; color: purple;">
+                        *Repeat your Password:
+                    </span>
+                    <input type="password" id="pass" name="Pass" style="width: 50%; height: 25px; font-size: 14px; border-color: orange" />
+                </div>
+            </div>
+            <br />
+            <br />
+
+            <div>
+                <input type="submit" id="btnsignup" class="signupbtn" value="Sign Up" onclick=" return formSubmitting()" />
+            </div>
+
+            <div id="error">
+            </div>
+
+        </form>
+
+    </div>
+
+</body>

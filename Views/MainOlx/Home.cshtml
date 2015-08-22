@@ -1,0 +1,338 @@
+﻿@{
+    ViewBag.Title = "Home";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+
+    <title>
+        OLX - Free Classified Ads in Pakistan
+    </title>
+    <link href="~/StyleSheet/MyStyleSheet.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+    <style>
+    </style>
+
+    <script src="~/myScripts/search.js"></script>
+    <script src="~/myScripts/ad.js"></script>
+
+    <script type="text/javascript">
+
+        function render() {
+            var objSearch = new Search("objSearch");
+            objSearch.display("searchwidget");
+            var objAd = new Ad("objAd");
+            objAd.appear("adwidget");
+            objAd.display("freead");
+        }
+
+        function hideAd(divID, ID) {
+
+            document.getElementById(divID).hidden = true;
+            document.getElementById(ID).hidden = true;
+
+        }
+        //$(function () {
+        //    $("#popup").dialog({
+        //       // autoOpen: false,
+        //        width: 300,
+        //        height: 250,
+        //        show: {
+        //            effect: "blind",
+        //            duration: 1000
+        //        },
+        //        hide: {
+        //            effect: "explode",
+        //            duration: 1000
+        //        }
+        //    });
+        //});
+ </script>
+    @{
+        if (ViewBag.check != true)
+        {
+            Response.Redirect("/MainOlx/popup", false);
+        }         
+    }
+</head>
+<body onload="render()">
+   
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1587853734828238',
+                xfbml: true,
+                version: 'v2.3'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div>
+
+
+        <img src="/images/olx4.png" alt="OLX Icon" style="width: 55%; height: 80px; margin-left: 8%; position: absolute; top: 0px; left: 15%" />
+
+        <div id="olxlogo">
+
+            <a href="/MainOlx/Home" id="topHomeLink">
+                <img src="/images/OLX_Logo.jpg" alt="OLX Logo" style="width: 15%; height: 110px; margin-left: 0.25%;" />
+            </a>
+            <span class="slogan" style="font-size: 28px; font-weight: bold; color: orange; margin-left: 1.5%">
+                Pakistan's Largest Marketplace
+            </span>
+
+            <span class="account">
+                @{
+
+    if (@ViewBag.person == "Log in to My Account")
+    {
+        <a href="/MainOlx/Login" class="blk" style="color: green" id="topLoginLink">
+            <img src="/images/green-man.png" alt="Person Icon" style="width: 3%; height: 35px; margin-left: 0.25%; position: relative; top: 2px" />
+            <strong>
+                @ViewBag.person
+            </strong>
+        </a>
+    }
+    else
+    {
+
+                        <a href="/MainOlx/Profile" class="blk" style="color: green" id="topProfileLink">
+                            <img src="/images/green-man.png" alt="Person Icon" style="width: 3%; height: 35px; margin-left: 0.25%; position: relative; top: 2px" />
+                            <strong>
+                                @ViewBag.person
+                            </strong>
+                        </a>
+                    }
+                }
+
+            </span>
+           
+            <span class="account" style="margin-left: 1%">
+                <a id="postNewAdLink" class="blk" style="color: purple" href="/MainOlx/SubmitAd">
+                    <img src="/images/plus1.png" alt="Plus Icon" style="width: 3%; height: 32px; margin-left: 0.25%; position: relative; top: 2px" />
+                    <strong>
+                        Submit an Ad
+                    </strong>
+                </a>
+            </span>
+
+            <br />
+
+            <div style="font-size: 20px; text-align: center; position: absolute; top: 45%; left: 56%;">
+                Sell and Buy on OLX - Pakistan
+
+            </div>
+
+            <div id="widget">
+                <div id="adwidget">
+
+                </div>
+            </div>
+
+            <div id="freead">
+
+            </div>
+
+            <div id='closebtn'>
+                <input type='button' id='closead' value='x' onclick="hideAd('widget','closebtn')" />
+            </div>
+
+
+
+            <form id=" formsearchwidget" method="post" action="SearchAd">
+
+                <div id="searchwidget" style="margin-left:2%; margin-right:4%">
+                </div>
+
+            </form>
+
+            <div id="invalid" style="margin-left: 22%">
+            </div>
+
+
+
+            <br />
+
+
+
+
+            <form id="formCategory" method="post" action="SearchCategories">
+
+                <div class="categoryCSS">
+
+                    <span>
+
+                        <a href="/MainOlx/SearchResult" class="noUnderline">
+                            <img src="/images/mobile2.jpg" alt="Mobile Icon" class="categories" />
+                        </a>
+
+                    </span>
+
+                    <span>
+
+                        <a href="/MainOlx/SearchResult" class="noUnderline">
+                            <img src="/images/laptop1.jpg" alt="Laptop Icon" class="categories" />
+                        </a>
+
+                    </span>
+
+                    <span>
+
+                        <a href="/MainOlx/SearchResult" class="noUnderline">
+                            <img src="/images/car2.jpg" alt="Car Icon" class="categories" />
+                        </a>
+
+                    </span>
+
+                    <span>
+
+                        <a href="/MainOlx/SearchResult" class="noUnderline">
+                            <img src="/images/furniture5.jpg" alt="Furniture Icon" class="categories" />
+                        </a>
+
+                    </span>
+
+
+                </div>
+
+
+
+                <div class="categoryCSS">
+
+
+                    <input name="Category" type="submit" id="btn1" class="btn" value="Mobile" />
+
+                    <input name="Category" type="submit" id="btn2" class="btn" value="Laptops" />
+
+                    <input name="Category" type="submit" id="btn3" class="btn" value="Vehicles" />
+
+                    <input name="Category" type="submit" id="btn4" class="btn" value="Furniture" />
+                </div>
+
+                <br />
+
+                <br />
+
+
+                <div>
+
+
+                    <div class="categoryCSS">
+
+                        <span>
+
+                            <a href="/MainOlx/SearchResult" class="noUnderline">
+                                <img src="/images/animals1.jpg" alt="Animals Icon" class="categories" />
+                            </a>
+                        </span>
+
+                        <span>
+
+                            <a href="/MainOlx/SearchResult" class="noUnderline">
+                                <img src="/images/books3.jpg" alt="Books Icon" class="categories" />
+                            </a>
+                        </span>
+
+                        <span>
+
+                            <a href="/MainOlx/SearchResult" class="noUnderline">
+                                <img src="/images/fashion1.jpg" alt="Fashion Icon" class="categories" />
+                            </a>
+
+                        </span>
+
+                        <span>
+
+                            <a href="/MainOlx/SearchResult" class="noUnderline">
+                                <img src="/images/KidsToys.jpg" alt="Kids Icon" class="categories" />
+                            </a>
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="categoryCSS">
+
+                        <input name="Category" type="submit" id="btn5" class="btn" value="Animals" />
+
+                        <input name="Category" type="submit" id="btn6" class="btn" value="Hobbies" />
+
+                        <input name="Category" type="submit" id="btn7" class="btn" value="Fashion" />
+
+                        <input name="Category" type="submit" id="btn8" class="btn" style="margin-left:2.5%" value="Kids" />
+
+                    </div>
+                    <br />
+
+
+                    <div class="categoryCSS">
+
+                        <span>
+
+                            <a href="/MainOlx/SearchResult" class="noUnderline">
+                                <img src="/images/service1.jpg" alt="Service Icon" class="categories" />
+                            </a>
+                        </span>
+
+                        <span>
+
+                            <a href="/MainOlx/SearchResult" class="noUnderline">
+                                <img src="/images/jobs4.png" alt="Jobs Icon" class="categories" />
+                            </a>
+                        </span>
+
+                        <span>
+
+                            <a href="/MainOlx/SearchResult" class="noUnderline">
+                                <img src="/images/houses5.jpg" alt="Real Estate Icon" class="categories" />
+                            </a>
+                        </span>
+
+                        <span>
+
+                            <a href="/MainOlx/SearchResult" class="noUnderline">
+                                <img src="/images/handicraft2.png" alt="Handicraft Icon" class="categories" />
+                            </a>
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="categoryCSS">
+
+                        <input name="Category" type="submit" id="btn9" class="btn" value="Services" />
+
+                        <input name="Category" type="submit" id="btn10" class="btn" value="Jobs" />
+
+                        <input name="Category" type="submit" id="btn11" class="btn" value="Real Estate" />
+
+                        <input name="Category" type="submit" id="btn12" class="btn" style="margin-left:0.25%" value="Handicraft" />
+
+                    </div>
+
+
+                </div>
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>

@@ -1,0 +1,325 @@
+﻿body {
+}
+
+
+.account {
+    font-size: 20px;
+    margin-left: 0.5%;
+}
+
+
+.noUnderline {
+    text-decoration: none;
+}
+
+.blk {
+    zoom: 1;
+    text-decoration: none;
+}
+
+.categoryCSS {
+    margin-left: 20%;
+}
+
+.categories {
+    width: 8%;
+    height: 72px;
+    margin-left: 2%;
+}
+
+.btn {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: purple;
+    margin-left: 2%;
+    width:auto;
+    height:auto;
+}
+
+.bn {
+    background: transparent;
+    border: none;
+    outline: none;
+    display: block;
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+    background-image: url(books3.jpg);
+}
+
+.searchIcon {
+    position: relative;
+    top: 0.5px;
+    left: 1%;
+}
+
+#search {
+    height: 5%;
+    width: 16%;
+    margin-left: 1%;
+    color: white;
+    background-color: #2965be;
+    font-size: 18px;
+    border: 2px solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    #search:hover {
+        height: 5%;
+        width: 16%;
+        margin-left: 1%;
+        color: white;
+        background-color: dodgerblue;
+        font-size: 18px;
+        border: 2px solid;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+#submitad {
+    height: 10%;
+    width: 13%;
+    margin-left: 1.5%;
+    color: white;
+    background-color: orangered;
+    font-size: 22px;
+    border: 2px solid;
+    border-radius: 30px;
+    position: absolute;
+    top: 84%;
+    left: 60%;
+    border: dotted;
+}
+
+#Add {
+    height: 8%;
+    width: 75%;
+    text-align: left;
+    font-size: initial;
+    border-radius: 5px;
+    margin-left: 8%;
+}
+
+#location {
+    height: 8%;
+    width: 30%;
+    text-align: -webkit-left;
+    font-size: initial;
+    border-radius: 5px;
+    color: darkgrey;
+    margin-left:1.5%;
+}
+
+#brand {
+    height: 5%;
+    width: 30%;
+    text-align: -webkit-left;
+    font-size: initial;
+    border-radius: 5px;
+    color: darkgrey;
+}
+
+.search {
+    margin-left: 20%;
+    margin-top: 1%;
+    background-color: #b0cfda;
+    border: 1px solid;
+    color: #a2a2a2;
+    margin-right: 15%;
+    padding: 1%;
+    border-radius: 5px;
+}
+
+.errorshow {
+    position: absolute;
+    top: 75%;
+    left: 38%;
+    font-size: 18px;
+    color: orangered;
+    font-weight: bold;
+}
+
+
+.signbtn {
+    background-color: floralwhite;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: maroon;
+    margin-left: 48%;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: serif;
+    cursor: pointer;
+}
+
+.signUp {
+    position: absolute;
+    top: 88%;
+    left: 43%;
+    font-size: 18px;
+    color: green;
+    font-weight: bold;
+    zoom: 1;
+}
+
+
+.errorshowing {
+    position: absolute;
+    top: 88%;
+    left: 42%;
+    font-size: 18px;
+    color: orangered;
+    font-weight: bold;
+}
+
+.sign {
+    margin-left: 24%;
+}
+
+.signupbtn {
+    background-color: floralwhite;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: maroon;
+    margin-left: 52%;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: serif;
+    cursor: pointer;
+}
+
+
+.errorshowed {
+    position: absolute;
+    top: 154%;
+    left: 36%;
+    font-size: 18px;
+    color: orangered;
+    font-weight: bold;
+}
+
+
+.trans {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: purple;
+    margin-left: 3.5%;
+}
+
+#closead {
+    
+    background-color: white;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: purple;
+    width:2%;
+    height:5%;
+    position:absolute;
+    top:52%;
+    left:76%;
+}
+
+#AdTB {
+    height: 5%;
+    width: 35%;
+    text-align: left;
+    font-size: initial;
+    border-radius: 5px;
+    margin-left: 1%;
+    margin-right: 0.5%;
+}
+
+#btnSigningUp
+{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    color: green;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: serif;
+    cursor: pointer;
+}
+
+.signingUp
+{
+    margin-left: 20%;
+}
+
+.submitAdBtn
+{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    color: purple;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: serif;
+    cursor: pointer;
+}
+
+#LogOutIcon
+{
+    width: 2.5%;
+    height: 32px;
+    position:absolute;
+    top:15%;
+    left:72%;
+    
+}
+
+
+#LogOutBtn
+{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    color: green;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: serif;
+    position:absolute;
+    top:14.5%;
+    left:74.5%;
+    cursor: pointer;
+
+}
+
+.buttons
+{
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    color: purple;
+    width:30%;
+    height:6%;
+    font-size:18px;
+    font-weight:bold;
+    cursor: pointer;
+}

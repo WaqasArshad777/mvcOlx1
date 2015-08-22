@@ -1,0 +1,193 @@
+﻿@{
+    ViewBag.Title = "popup";
+}
+@using mvcOlx.Models;
+@{
+    List<Ad> Ads = ViewBag.found;
+}
+<head>
+
+    <title>
+        OLX - Free Classified Ads in Pakistan
+    </title>
+
+
+    <link href="~/StyleSheet/MyStyleSheet.css" rel="stylesheet" />
+
+    <style>
+    </style>
+
+    <script src="~/myScripts/search.js"></script>
+
+    <script type="text/javascript">
+
+        function render() {
+            var objSearch = new Search("objSearch");
+            objSearch.display("searchwidget");
+        }
+
+        function hideAd(divID, ID) {
+
+            document.getElementById(divID).hidden = true;
+            document.getElementById(ID).hidden = true;
+
+        }
+        $(function () {
+            $("#popup").dialog({
+                // autoOpen: false,
+                width: 300,
+                height: 250,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+        });
+    </script>
+</head>
+
+<body onload="render()">
+
+    <img src="/images/olx4.png" alt="OLX Icon" style="width: 55%; height: 90px; margin-left: 8%; position: absolute; top: 0px; left: 15%" />
+
+    <div id="olxlogo">
+
+        <a href="/MainOlx/Home" id="topHomeLink">
+            <img src="/images/OLX_Logo.jpg" alt="OLX Logo" style="width: 15%; height: 135px; margin-left: 0.25%;" />
+        </a>
+        <span class="slogan" style="font-size: 28px; font-weight: bold; color: orange; margin-left: 1.5%">
+            Pakistan's Largest Marketplace
+        </span>
+
+        <span class="account">
+            @{
+
+                if (@ViewBag.person == "Log in to My Account")
+                {
+                    <a href="/MainOlx/Login" class="blk" style="color: green" id="topLoginLink">
+                        <img src="/images/green-man.png" alt="Person Icon" style="width: 3%; height: 35px; margin-left: 0.25%; position: relative; top: 2px" />
+                        <strong>
+                            @ViewBag.person
+                        </strong>
+                    </a>
+                }
+                else
+                {
+
+                    <a href="/MainOlx/Profile" class="blk" style="color: green" id="topProfileLink">
+                        <img src="/images/green-man.png" alt="Person Icon" style="width: 3%; height: 35px; margin-left: 0.25%; position: relative; top: 2px" />
+                        <strong>
+                            @ViewBag.person
+                        </strong>
+                    </a>
+                }
+            }
+
+        </span>
+
+        <span class="account" style="margin-left: 1%">
+            <a id="postNewAdLink" class="blk" style="color: purple" href="/MainOlx/SubmitAd">
+                <img src="/images/plus1.png" alt="Plus Icon" style="width: 3%; height: 32px; margin-left: 0.25%; position: relative; top: 2px" />
+                <strong>
+                    Submit an Ad
+                </strong>
+            </a>
+        </span>
+
+        <br />
+
+    </div>
+
+    <form id="formsearchwidget" method="post" action="SearchAd">
+
+        <div id="searchwidget" style="margin-left:2%; margin-right:4%">
+        </div>
+
+    </form>
+
+    <div id="invalid" style="margin-left: 22%">
+    </div>
+
+    <div style="align-content:center">Advertisement Found Which You were Looking For!</div>
+
+    <div id="popup">
+        @foreach (Ad item in Ads)
+        {
+            <div style="margin-left: 25%; margin-right: 25%">
+
+                <hr />
+
+                <br />
+
+                @if (item.AdLImage != null)
+                {
+                    <img src=@Url.Content(item.AdLImage) alt="Photograph" style="width: 40%; height: 30%; float:right" />
+                }
+
+                else if (item.AdImage != null)
+                {
+
+                    <img src=@Url.Content(item.AdImage) alt="Photograph" style="width: 25%; height: 30%; float:right" />
+
+
+                }
+
+
+                <div>
+                    <span style="font-size: 22px; font-family: Calibri">
+                        Title:
+                    </span>
+
+                    <span style="font-size: 25px; font-weight: bold; font-family: Times New Roman">
+                        <strong>
+                            @item.Title
+                        </strong>
+                    </span>
+                </div>
+                <br />
+                @if (@item.Price != null)
+                {
+                    <div>
+                        <span style="font-size: 20px; font-family: Calibri; ">
+                            Price:
+                        </span>
+                        <span style="font-size: 20px; font-family: Times New Roman">
+                            Rs. @item.Price
+                        </span>
+                    </div>
+
+                    <br />
+                }
+
+                <div>
+                    <span style="font-size: 20px; font-family: Calibri">
+                        Location:
+                    </span>
+                    <span style="font-size: 20px; font-family:times new roman">
+                        @item.City
+                    </span>
+                </div>
+
+                <br />
+
+                <br />
+
+                @using (Html.BeginForm("Detail", "MainOlx", new { id = @item.AdID }, FormMethod.Post, null))
+                {
+                    <input type="submit" value="View Full Ad" class="buttons">
+                }
+
+                <br />
+
+                <hr />
+
+            </div>
+        }
+    </div>
+
+
+</body>

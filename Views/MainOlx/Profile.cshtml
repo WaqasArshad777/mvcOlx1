@@ -1,0 +1,161 @@
+﻿@using mvcOlx.Models;
+@{
+    ViewBag.Title = "Profile";
+}
+@{
+    List<Ad> list = ViewBag.userAds;
+}
+<head>
+    <title>OLX - User Profile</title>
+
+    <link href="~/StyleSheet/MyStyleSheet.css" rel="stylesheet" />
+
+    <style>
+    </style>
+
+    <script type="text/javascript">
+
+    </script>
+
+</head>
+
+<body>
+    <div style="margin-left:6%">
+
+        <div id="olxlogo">
+
+            <a href="/MainOlx/Home" id="topHomeLink">
+                <img src="/images/OLX_Logo.jpg" alt="OLX Logo" style="width: 15%; height: 135px; margin-left: 0.25%;" />
+            </a>
+            <span class="slogan" style="font-size: 28px; font-weight: bold; color: orange; margin-left: 1.5%">
+                Pakistan's Largest Marketplace
+            </span>
+
+            <span class="account" style="margin-left: 1%">
+                <a id="postNewAdLink" class="blk" style="color: purple" href="/MainOlx/SubmitAd">
+                    <img src="/images/plus1.png" alt="Plus Icon" style="width: 3%; height: 32px; margin-left: 0.25%; position: relative; top: 2px" />
+                    <strong>
+                        Submit an Ad
+                    </strong>
+                </a>
+            </span>
+
+            <br />
+
+        </div>
+
+        <br />
+
+        <br />
+
+    </div>
+
+    <div style="margin-left:42%">
+        <span style="font-size:26px; font-weight:bold; color:maroon">
+            Ads Posted
+        </span>
+    </div>
+
+    @{
+        if (list != null && list.Count!=0) { 
+        foreach (Ad item in list)
+        {
+            <div style="margin-left:25%; margin-right:25%">
+
+                <div>
+
+                    <hr />
+
+                    <br />
+
+                    @if (item.AdImage != null)
+                    {
+
+                        <img src=@Url.Content(item.AdImage) alt="Photograph" style="width: 25%; height: 30%; float:right" />
+
+
+                    }
+
+
+                    <div>
+                        <span style="font-size: 22px; font-family: Calibri">
+                            Title:
+                        </span>
+
+                        <span style="font-size: 25px; font-weight: bold; font-family: Times New Roman">
+                            <strong>
+                                @item.Title
+                            </strong>
+                        </span>
+                    </div>
+                    <br />
+                    <div>
+                        <span style="font-size: 20px; font-family: Calibri">
+                            Price:
+                        </span>
+                        <span style="font-size: 20px; font-family: Times New Roman">
+                            Rs. @item.Price
+                        </span>
+                    </div>
+
+
+                    <br />
+
+                    <div>
+                        <span style="font-size: 20px; font-family: Calibri">
+                            Location:
+                        </span>
+                        <span style="font-size: 20px; font-family: Times New Roman">
+                            @item.City
+                        </span>
+                    </div>
+
+                    <br />
+
+                    @using (Html.BeginForm("Edit", "MainOlx", new { id = @item.AdID }, FormMethod.Post, null))
+                    {
+                        <input type="submit" value="Edit Ad" class="buttons">
+                    }
+
+                    <br />
+
+                    @using (Html.BeginForm("Remove", "MainOlx", new { id = @item.AdID }, FormMethod.Post, null))
+                    {
+                        <input type="submit" value="Remove Ad" class="buttons">
+                    }
+
+                    <br />
+
+                    @using (Html.BeginForm("Detail", "MainOlx", new { id = @item.AdID }, FormMethod.Post, null))
+                    {
+                        <input type="submit" value="View Full Ad" class="buttons">
+                    }
+
+
+                    <br />
+
+                    <hr />
+
+                </div>
+
+
+
+            </div>
+        }
+    }
+        else
+        {
+            <div style="color:red;"> You have submited no Ad!</div>
+        }
+    }
+
+
+
+    @using (Html.BeginForm("LoggingOut", "MainOlx", FormMethod.Post, null))
+    {
+        <img src="/images/Logout.png" alt="Log Out Icon" id="LogOutIcon" />
+        <input type="submit" value="Log Out" id="LogOutBtn">
+    }
+
+
+</body>

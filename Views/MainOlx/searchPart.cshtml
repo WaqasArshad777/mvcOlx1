@@ -1,0 +1,111 @@
+﻿@model IEnumerable<mvcOlx.Models.Ad>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Province)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdLImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.P_Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.note)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Province)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdLImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ad_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.P_Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.note)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AdID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AdID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AdID })
+        </td>
+    </tr>
+}
+
+</table>

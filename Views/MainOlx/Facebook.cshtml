@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Part 1 - Facebook Login Button";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+
+    @{
+        try { 
+        Response.Redirect("/MainOlx/Home", false);
+        }
+        catch (Exception e)
+        {
+            Response.Redirect("/MainOlx/Home", false);   
+        }
+    }
+
+</head>
